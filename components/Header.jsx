@@ -11,12 +11,16 @@ import NLink from "next/link";
 
 export default function Header({ activeLink }) {
   return (
-    <Stack as="section" alignItems={{ base: "center", md: "start" }}>
+    <Stack
+      as="section"
+      alignItems={{ base: "center", md: "start" }}
+      pt={{ base: "12", md: "0" }}
+    >
       <Box
         as="img"
         src="/gaurav.jpg"
         objectFit="cover"
-        boxSize={{ base: "14", md: "24" }}
+        boxSize={{ base: "28", md: "24" }}
         rounded="full"
         place
       />
