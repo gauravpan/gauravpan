@@ -10,12 +10,7 @@ Projects.title = "Projects";
 export default function Projects() {
   return (
     <>
-      <Box
-        maxW="900px"
-        mx="auto"
-        px="0.5rem"
-        pt={{ base: "0.5rem", md: "4rem" }}
-      >
+      <Box maxW="900px" mx="auto" px="1rem" pt={{ base: "0.5rem", md: "4rem" }}>
         <Header activeLink="projects" />
         <Main>
           {projects.map((item) => (
