@@ -19,7 +19,7 @@ export default function Projects() {
         <Header activeLink="projects" />
         <Main>
           {projects.map((item) => (
-            <Card {...item} isProject={true} key={item.name} />
+            <Card {...item} isProject={true} key={item.title} />
           ))}
         </Main>
       </Box>

@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Main from "../components/Main.layout";
 
-import tthoughts from "../data/thoughts";
 import { getAllThoughts } from "../lib/get-thoughts";
 
 Thoughts.title = "Thoughts";

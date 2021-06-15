@@ -6,8 +6,32 @@ import { getAllThoughtSlugs, getThoughtBySlug } from "../lib/get-thoughts";
 // import remark from "remark";
 // import html from "remark-html";
 // import prism from "remark-prism";
+import prism from "prismjs";
 import ReactMarkdown from "react-markdown";
-import { metaProperty } from "@babel/types";
+
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+/* Use `…/dist/cjs/…` if you’re not in ESM! */
+import { atomDark as dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+const components = {
+  code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={dark}
+        language={match[1]}
+        PreTag="div"
+        children={String(children).replace(/\n$/, "")}
+        {...props}
+      />
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
+};
 
 export default function Home({ markdown }) {
   return (
@@ -18,7 +42,9 @@ export default function Home({ markdown }) {
       <Box maxW="900px" mx="auto" px="1rem" pt={{ base: "2rem", md: "4rem" }}>
         <Heading size="lg"> This is heading </Heading>
         <Wrapper>
-          <ReactMarkdown>{markdown.content}</ReactMarkdown>
+          <ReactMarkdown components={components}>
+            {markdown.content}
+          </ReactMarkdown>
           <hr />
         </Wrapper>
       </Box>

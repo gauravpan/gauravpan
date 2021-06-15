@@ -20,9 +20,9 @@ export default function Card({ title, excerpt, slug, isProject, href = "" }) {
       </NLink>
 
       <Text>{excerpt}</Text>
-      <Box py="0.5rem">
+      <Box>
         <NLink passHref href={href}>
-          <Link fontSize="sm" py="0.25rem">
+          <Link fontSize="sm">
             {isProject ? `Learn more →` : `Read a full article  →`}
           </Link>
         </NLink>
