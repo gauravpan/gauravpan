@@ -5,8 +5,8 @@ export default function Main({ children }) {
     <Stack
       as="main"
       fontSize="large"
-      spacing="4"
-      pt="8"
+      spacing="1rem"
+      pt="2rem"
       maxW={{ base: "full", sm: "600px" }}
       color="gray.600"
     >

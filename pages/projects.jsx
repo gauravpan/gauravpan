@@ -10,11 +10,16 @@ Projects.title = "Projects";
 export default function Projects() {
   return (
     <>
-      <Box maxW="900px" mx="auto" px="4" pt={{ base: "2", md: "16" }}>
+      <Box
+        maxW="900px"
+        mx="auto"
+        px="0.5rem"
+        pt={{ base: "0.5rem", md: "4rem" }}
+      >
         <Header activeLink="projects" />
         <Main>
           {projects.map((item) => (
-            <Card {...item} isProject={true} />
+            <Card {...item} isProject={true} key={item.name} />
           ))}
         </Main>
       </Box>

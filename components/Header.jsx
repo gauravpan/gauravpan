@@ -14,14 +14,14 @@ export default function Header({ activeLink }) {
     <Stack
       as="section"
       alignItems={{ base: "center", md: "start" }}
-      pt={{ base: "12", md: "0" }}
+      pt={{ base: "3rem", md: "0px" }}
     >
       <Box
         as="img"
         src="/gaurav.jpg"
         objectFit="cover"
-        boxSize={{ base: "28", md: "24" }}
-        rounded="full"
+        boxSize={{ base: "7rem", md: "6rem" }}
+        rounded="100%"
         transform="rotate(5deg)"
         alt="Gaurav Pandey"
       />
@@ -38,9 +38,9 @@ export function Nav({ active, ...rest }) {
     { name: "thoughts", href: "/thoughts" },
   ];
   return (
-    <HStack as="nav" py={{ base: "1", md: "2" }} {...rest}>
+    <HStack as="nav" py={{ base: "0.25rem", md: "0.5rem" }} {...rest}>
       {list.map(({ name, href }) => (
-        <NLink href={href} passHref>
+        <NLink href={href} passHref key={name}>
           <Link
             textTransform="uppercase"
             fontWeight="medium"

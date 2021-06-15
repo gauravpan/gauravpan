@@ -1,21 +1,24 @@
 import { Box, Heading } from "@chakra-ui/react";
-
+import Head from "next/head";
 import Wrapper from "../components/Thought.layout";
-import { getThoughtBySlug } from "../lib/get-thoughts";
+import { getAllThoughtSlugs, getThoughtBySlug } from "../lib/get-thoughts";
 
 // import remark from "remark";
 // import html from "remark-html";
 // import prism from "remark-prism";
 import ReactMarkdown from "react-markdown";
+import { metaProperty } from "@babel/types";
 
 export default function Home({ markdown }) {
   console.log({ markdown });
 
   return (
     <>
-      <Box maxW="900px" mx="auto" px="4" pt={{ base: "8", md: "16" }}>
+      <Head>
+        <title>{`${markdown?.meta?.title} | Gaurav Pandey`}</title>
+      </Head>
+      <Box maxW="900px" mx="auto" px="1rem" pt={{ base: "2rem", md: "4rem" }}>
         <Heading size="lg"> This is heading </Heading>
-
         <Wrapper>
           <ReactMarkdown>{markdown.content}</ReactMarkdown>
           <hr />
@@ -41,7 +44,11 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: ["/test"], fallback: false };
+  let thoughts = await getAllThoughtSlugs();
+  let thoughtsPage = thoughts.map((thought) => `/${thought}`);
+  console.log({ thoughtsPage });
+
+  return { paths: thoughtsPage || [], fallback: false };
 }
 
 export const config = {

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 export default function Home() {
   return (
     <>
-      <Box maxW="900px" mx="auto" px="4" pt={{ base: "2", md: "16" }}>
+      <Box maxW="900px" mx="auto" px="1rem" pt={{ base: "0.5rem", md: "4rem" }}>
         <Header activeLink="about" />
         <Main>
           <Text>

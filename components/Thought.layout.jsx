@@ -6,8 +6,8 @@ export default function Layout({ children }) {
     <Stack
       as="main"
       fontSize="large"
-      spacing="4"
-      py="8"
+      spacing="1rem"
+      py="2rem"
       maxW={{ base: "full", sm: "600px" }}
       color="gray.600"
     >

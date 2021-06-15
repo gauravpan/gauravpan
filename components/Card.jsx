@@ -9,19 +9,20 @@ import {
 } from "@chakra-ui/react";
 import NLink from "next/link";
 
-export default function Card({ name, description, slug, isProject }) {
+export default function Card({ title, excerpt, slug, isProject, href = "" }) {
+  href = isProject ? href : `/${slug}`;
   return (
     <Box>
-      <NLink passHref href={`/${slug}`} passHref>
-        <Heading as="a" d="block" cursor="pointer" py="2" size="md">
-          {name}
+      <NLink passHref href={href} passHref>
+        <Heading as="a" d="block" cursor="pointer" py="0.5rem" size="md">
+          {title}
         </Heading>
       </NLink>
 
-      <Text>{description}</Text>
-      <Box py="2">
-        <NLink passHref href={`/${slug}`}>
-          <Link fontSize="sm" py="1">
+      <Text>{excerpt}</Text>
+      <Box py="0.5rem">
+        <NLink passHref href={href}>
+          <Link fontSize="sm" py="0.25rem">
             {isProject ? `Learn more →` : `Read a full article  →`}
           </Link>
         </NLink>
