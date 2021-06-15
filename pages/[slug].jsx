@@ -10,8 +10,6 @@ import ReactMarkdown from "react-markdown";
 import { metaProperty } from "@babel/types";
 
 export default function Home({ markdown }) {
-  console.log({ markdown });
-
   return (
     <>
       <Head>
@@ -46,7 +44,6 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   let thoughts = await getAllThoughtSlugs();
   let thoughtsPage = thoughts.map((thought) => `/${thought}`);
-  console.log({ thoughtsPage });
 
   return { paths: thoughtsPage || [], fallback: false };
 }

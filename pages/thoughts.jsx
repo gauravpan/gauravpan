@@ -9,7 +9,6 @@ import { getAllThoughts } from "../lib/get-thoughts";
 
 Thoughts.title = "Thoughts";
 export default function Thoughts({ thoughts }) {
-  console.log(thoughts);
   return (
     <>
       <Box
