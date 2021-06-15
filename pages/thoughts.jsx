@@ -10,7 +10,7 @@ Thoughts.title = "Thoughts";
 export default function Thoughts() {
   return (
     <>
-      <Box maxW="900px" mx="auto" px="2" pt={{ base: "2", md: "16" }}>
+      <Box maxW="900px" mx="auto" px="4" pt={{ base: "2", md: "16" }}>
         <Header activeLink="thoughts" />
         <Main>
           {thoughts.map((item) => (

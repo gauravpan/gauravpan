@@ -23,7 +23,7 @@ export default function Header({ activeLink }) {
         boxSize={{ base: "28", md: "24" }}
         rounded="full"
         transform="rotate(5deg)"
-        place
+        alt="Gaurav Pandey"
       />
       <Heading size="lg">Gaurav Pandey</Heading>
       <Nav active={activeLink} />
@@ -45,7 +45,7 @@ export function Nav({ active, ...rest }) {
             textTransform="uppercase"
             fontWeight="medium"
             fontSize="sm"
-            color={active === name ? "gray.900" : "gray.400"}
+            color={active === name ? "gray.900" : "gray.500"}
             _hover={{ color: "gray.900" }}
           >
             {name}

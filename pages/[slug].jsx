@@ -13,7 +13,7 @@ export default function Home({ markdown }) {
 
   return (
     <>
-      <Box maxW="900px" mx="auto" px="2" pt={{ base: "8", md: "16" }}>
+      <Box maxW="900px" mx="auto" px="4" pt={{ base: "8", md: "16" }}>
         <Heading size="lg"> This is heading </Heading>
 
         <Wrapper>
