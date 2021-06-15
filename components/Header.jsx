@@ -22,6 +22,7 @@ export default function Header({ activeLink }) {
         objectFit="cover"
         boxSize={{ base: "28", md: "24" }}
         rounded="full"
+        transform="rotate(5deg)"
         place
       />
       <Heading size="lg">Gaurav Pandey</Heading>
