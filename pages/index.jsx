@@ -1,8 +1,21 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Link } from "@chakra-ui/react";
 
 import Main from "../components/Main.layout";
 import Header from "../components/Header";
 
+const fav = [
+  { name: "next.js", href: "https://nextjs.org/" },
+  { name: "node.js", href: "https://nodejs.org/en/" },
+  { name: "mongoDB", href: "https://www.mongodb.com/" },
+];
+const tech = [
+  { name: "GraphQL", href: "https://graphql.org/" },
+  { name: "React Native", href: "https://reactnative.dev/" },
+  { name: "Zustand", href: "https://github.com/pmndrs/zustand" },
+  { name: "Tailwind CSS", href: "https://tailwindcss.com/" },
+
+  { name: "Chakra", href: "https://chakra-ui.com/" },
+];
 export default function Home() {
   return (
     <>
@@ -16,24 +29,51 @@ export default function Home() {
             </Text>
             , a full stack javascript developer with 2+ years of experience.
           </Text>
-          <Text>Currently, I work at Enspire Tech. </Text>
+          {/* <Text>Currently, I work at Enspire Tech. </Text> */}
           <Text>
-            I have used{" "}
-            <Text as="span" fontWeight="medium">
-              react.js{" "}
-            </Text>
-            and{" "}
-            <Text as="span" fontWeight="medium">
-              node.js
-            </Text>{" "}
-            in every projects. Besides these technologies, I really love
-            GraphQL, Zustand and Chakra.
+            I have mostly worked with{" "}
+            {fav.map((item, index) => (
+              <DisplayInlineList
+                {...item}
+                array={fav}
+                index={index}
+                key={item.name}
+              />
+            ))}
+            {" ."}
+            <br /> Besides these technologies, I really love{" "}
+            {tech.map((item, index) => (
+              <DisplayInlineList
+                {...item}
+                array={tech}
+                index={index}
+                key={item.name}
+              />
+            ))}
+            .
           </Text>
+          <Text>I believe in simplicity.</Text>
         </Main>
       </Box>
     </>
   );
 }
+
+function DisplayInlineList({ name, href, array, index }) {
+  return (
+    <>
+      <Link fontWeight="medium" href={href}>
+        {name}
+      </Link>
+      {index + 2 === array.length
+        ? " and "
+        : index + 1 === array.length
+        ? ""
+        : ", "}
+    </>
+  );
+}
+
 export const config = {
   unstable_runtimeJS: false,
 };
