@@ -18,3 +18,8 @@ a {
 pre {
   overflow: auto;
 }
+
+a,
+button {
+  touch-action: manipulation;
+}
