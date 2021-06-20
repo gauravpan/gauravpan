@@ -1,17 +1,13 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Link } from "@chakra-ui/react";
 import Head from "next/head";
-import Wrapper from "../components/Thought.layout";
-import { getAllThoughtSlugs, getThoughtBySlug } from "../lib/get-thoughts";
-
-// import remark from "remark";
-// import html from "remark-html";
-// import prism from "remark-prism";
-import prism from "prismjs";
 import ReactMarkdown from "react-markdown";
-
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 /* Use `…/dist/cjs/…` if you’re not in ESM! */
 import { atomDark as dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+import Wrapper from "../components/Thought.layout";
+import { getAllThoughtSlugs, getThoughtBySlug } from "../lib/get-thoughts";
+import { readTime } from "../lib/get-readtime";
 
 const components = {
   code({ node, inline, className, children, ...props }) {
@@ -31,6 +27,13 @@ const components = {
       </code>
     );
   },
+  link({ className, children, ...props }) {
+    return (
+      <Link color="blue.500" className={className} {...props}>
+        {children}
+      </Link>
+    );
+  },
 };
 
 export default function Home({ markdown }) {
@@ -39,8 +42,12 @@ export default function Home({ markdown }) {
       <Head>
         <title>{`${markdown?.meta?.title} | Gaurav Pandey`}</title>
       </Head>
-      <Box maxW="900px" mx="auto" px="1rem" pt={{ base: "2rem", md: "4rem" }}>
-        <Heading size="lg"> This is heading </Heading>
+      <Box maxW="1000px" mx="auto" px="1rem" pt={{ base: "1rem", md: "2rem" }}>
+        <Heading as="a" href="/thoughts" py="2">{`←`}</Heading>
+        <Heading size="xs" py="2" color="gray.500" textTransform="uppercase">
+          {readTime(markdown.content)} min read{" "}
+        </Heading>
+        <Heading size="lg"> {markdown?.meta?.title} </Heading>
         <Wrapper>
           <ReactMarkdown components={components}>
             {markdown.content}
@@ -73,7 +80,3 @@ export async function getStaticPaths() {
 
   return { paths: thoughtsPage || [], fallback: false };
 }
-
-export const config = {
-  unstable_runtimeJS: false,
-};
