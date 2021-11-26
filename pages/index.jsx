@@ -74,6 +74,6 @@ function DisplayInlineList({ name, href, array, index }) {
   );
 }
 
-export const config = {
-  unstable_runtimeJS: false,
-};
+// export const config = {
+//   unstable_runtimeJS: false,
+// };
