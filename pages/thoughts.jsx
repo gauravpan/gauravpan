@@ -34,6 +34,6 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export const config = {
-  unstable_runtimeJS: false,
-};
+// export const config = {
+//   unstable_runtimeJS: false,
+// };
